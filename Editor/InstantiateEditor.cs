@@ -18,6 +18,7 @@ namespace InstantiateEx {
         private SerializedProperty gameObjectReference;
         private SerializedProperty instantiatePosition;
         private SerializedProperty onAwake;
+        private SerializedProperty autoActivate;
 
         #endregion SERIALIZED PROPERTIES
 
@@ -34,6 +35,7 @@ namespace InstantiateEx {
             DrawGameObjectReferenceField();
             DrawInstantiatePositionField();
             DrawOnAwakeToggle();
+            DrawAutoActivateToggle();
 
             serializedObject.ApplyModifiedProperties();
         }
@@ -46,11 +48,21 @@ namespace InstantiateEx {
             instantiatePosition =
                 serializedObject.FindProperty("instantiatePosition");
             onAwake = serializedObject.FindProperty("onAwake");
+            autoActivate = serializedObject.FindProperty("autoActivate");
         }
 
         #endregion UNITY MESSAGES
 
         #region INSPECTOR CONTROLS
+        private void DrawAutoActivateToggle() {
+            EditorGUILayout.PropertyField(
+                autoActivate,
+                new GUIContent(
+                    "Activate",
+                    "If true, the game object will be activated after " +
+                    "instantiation."));
+        }
+
         private void DrawOnAwakeToggle() {
             EditorGUILayout.PropertyField(
                 onAwake,

@@ -44,6 +44,9 @@ namespace InstantiateEx {
         [SerializeField]
         private bool onAwake;
 
+        [SerializeField]
+        private bool autoActivate;
+
         #endregion INSPECTOR FIELDS
 
         #region PROPERTIES
@@ -79,6 +82,15 @@ namespace InstantiateEx {
         public bool OnAwake {
             get { return onAwake; }
             set { onAwake = value; }
+        }
+
+        /// <summary>
+        /// If true, the instantiated game object will be activated
+        /// after instantiation.
+        /// </summary>
+        public bool AutoActivate {
+            get { return autoActivate; }
+            set { autoActivate = value; }
         }
 
         #endregion PROPERTIES

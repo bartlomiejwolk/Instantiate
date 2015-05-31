@@ -38,6 +38,9 @@ namespace InstantiateEx {
         [SerializeField]
         private GameObject gameObjectReference;
 
+        [SerializeField]
+        private Transform instantiatePosition;
+
         #endregion INSPECTOR FIELDS
 
         #region PROPERTIES
@@ -56,6 +59,15 @@ namespace InstantiateEx {
         public GameObject GameObjectReference {
             get { return gameObjectReference; }
             set { gameObjectReference = value; }
+        }
+
+        /// <summary>
+        /// 3d position of the instantiated game object will be the same
+        /// as the passed transform position.
+        /// </summary>
+        public Transform InstantiatePosition {
+            get { return instantiatePosition; }
+            set { instantiatePosition = value; }
         }
 
         #endregion PROPERTIES

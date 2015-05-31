@@ -16,6 +16,7 @@ namespace InstantiateEx {
 
         private SerializedProperty description;
         private SerializedProperty gameObjectReference;
+        private SerializedProperty instantiatePosition;
 
         #endregion SERIALIZED PROPERTIES
 
@@ -30,6 +31,7 @@ namespace InstantiateEx {
             EditorGUILayout.Space();
 
             DrawGameObjectReferenceField();
+            DrawInstantiatePositionField();
 
             serializedObject.ApplyModifiedProperties();
         }
@@ -39,11 +41,21 @@ namespace InstantiateEx {
             description = serializedObject.FindProperty("description");
             gameObjectReference =
                 serializedObject.FindProperty("gameObjectReference");
+            instantiatePosition =
+                serializedObject.FindProperty("instantiatePosition");
         }
 
         #endregion UNITY MESSAGES
 
         #region INSPECTOR CONTROLS
+        private void DrawInstantiatePositionField() {
+            EditorGUILayout.PropertyField(
+                instantiatePosition,
+                new GUIContent(
+                    "Position",
+                    "Position for the instantiated game object."));
+        }
+
         private void DrawGameObjectReferenceField() {
             EditorGUILayout.PropertyField(
                 gameObjectReference,

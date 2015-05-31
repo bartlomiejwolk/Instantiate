@@ -41,6 +41,9 @@ namespace InstantiateEx {
         [SerializeField]
         private Transform instantiatePosition;
 
+        [SerializeField]
+        private bool onAwake;
+
         #endregion INSPECTOR FIELDS
 
         #region PROPERTIES
@@ -68,6 +71,14 @@ namespace InstantiateEx {
         public Transform InstantiatePosition {
             get { return instantiatePosition; }
             set { instantiatePosition = value; }
+        }
+
+        /// <summary>
+        /// If true, game object will be instantiated on awake.
+        /// </summary>
+        public bool OnAwake {
+            get { return onAwake; }
+            set { onAwake = value; }
         }
 
         #endregion PROPERTIES

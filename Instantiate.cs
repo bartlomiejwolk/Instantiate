@@ -122,6 +122,17 @@ namespace InstantiateEx {
         #endregion EVENT HANDLERS
 
         #region METHODS
+
+        /// <summary>
+        /// Instantiate game object.
+        /// </summary>
+        public void InstantiateGameObject() {
+            Instantiate(
+                GameObjectReference,
+                InstantiatePosition.position,
+                Quaternion.identity);
+        }
+
         #endregion METHODS
 
     }

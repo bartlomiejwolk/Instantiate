@@ -1,4 +1,5 @@
 ﻿using UnityEditor;
+using UnityEngine;
 
 namespace InstantiateEx {
 
@@ -14,6 +15,7 @@ namespace InstantiateEx {
         #region SERIALIZED PROPERTIES
 
         private SerializedProperty description;
+        private SerializedProperty gameObjectReference;
 
         #endregion SERIALIZED PROPERTIES
 
@@ -27,18 +29,29 @@ namespace InstantiateEx {
 
             EditorGUILayout.Space();
 
+            DrawGameObjectReferenceField();
+
             serializedObject.ApplyModifiedProperties();
         }
-
         private void OnEnable() {
             Script = (Instantiate)target;
 
             description = serializedObject.FindProperty("description");
+            gameObjectReference =
+                serializedObject.FindProperty("gameObjectReference");
         }
 
         #endregion UNITY MESSAGES
 
         #region INSPECTOR CONTROLS
+        private void DrawGameObjectReferenceField() {
+            EditorGUILayout.PropertyField(
+                gameObjectReference,
+                new GUIContent(
+                    "Game Object",
+                    "Game object to be instantiated."));
+        }
+
 
         private void DrawVersionLabel() {
             EditorGUILayout.LabelField(

@@ -35,6 +35,9 @@ namespace InstantiateEx {
         [SerializeField]
         private string description = "Description";
 
+        [SerializeField]
+        private GameObject gameObjectReference;
+
         #endregion INSPECTOR FIELDS
 
         #region PROPERTIES
@@ -45,6 +48,14 @@ namespace InstantiateEx {
         public string Description {
             get { return description; }
             set { description = value; }
+        }
+
+        /// <summary>
+        /// Reference to the game object to be instantiated.
+        /// </summary>
+        public GameObject GameObjectReference {
+            get { return gameObjectReference; }
+            set { gameObjectReference = value; }
         }
 
         #endregion PROPERTIES
